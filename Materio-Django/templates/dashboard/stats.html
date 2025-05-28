@@ -1,0 +1,19 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+<script src="{% static 'js/script.js' %}"></script>
+<h1>Dashboard Statistics (Company DB)</h1>
+<ul>
+  <li>Total Students: {{ total_students }}</li>
+  <li>Total Courses: {{ total_courses }}</li>
+  <li>Total Subjects: {{ total_subjects }}</li>
+  <li>
+    Most Enrolled Subject: {{ most_enrolled_subject.SubjCode }} ({{
+    most_enrolled_subject.total }})
+  </li>
+</ul>
+<h2>Total Units Per Student</h2>
+<ul>
+  {% for student in total_units_per_student %}
+  <li>{{ student.StudentID }}: {{ student.total_units }}</li>
+  {% endfor %}
+</ul>
